@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDC | Selección de Perfil</title>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #2b2d42;
+            --success-color: #38b000;
+            --warning-color: #ffaa00;
+            --danger-color: #ef233c;
+            --text-color: #4a4a4a;
+            --text-light: #6c757d;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --card-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.1);
+            --nav-height: 70px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+            font-weight: 800;
+        }
+        
+        /* Main Content */
+        .main-container {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-title .title-decoration {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .card-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        
+        .btn-select {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .btn-select:hover {
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-select i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-select:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Animation Delays */
+        .profile-card:nth-child(1) { animation-delay: 0.2s; }
+        .profile-card:nth-child(2) { animation-delay: 0.4s; }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header {
+                padding: 0 20px;
+            }
+            
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-content {
+                padding: 25px;
+            }
+            
+            .card-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.php" class="logo">
+            <img src="img/felix_dev.jpg" alt="FELIX DEV CURSOS">
+            <div class="logo-text">FELIX <span>DEV</span></div>
+        </a>
+    </header>
+
+    <main class="main-container">
+        <div class="page-title">
+            <h1>¿QUÉ TIPO DE USUARIO ERES?</h1>
+            <div class="title-decoration"></div>
+        </div>
+        
+        <div class="cards-container">
+            <div class="profile-card">
+                <div class="card-image">
+                    <img src="facilitador.png" alt="Facilitador FDC">
+                </div>
+                <div class="card-content">
+                    <h2>FACILITADOR</h2>
+                    <p>Únete a nuestro equipo de instructores profesionales. Como facilitador podrás crear y gestionar cursos, guiar a los estudiantes y contribuir al desarrollo educativo de nuestra comunidad.</p>
+                    <a href="registro-facilitador.php" class="btn-select">
+                        Seleccionar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="profile-card">
+                <div class="card-image">
+                    <img src="./estudiantee.jpg" alt="Estudiante FDC">
+                </div>
+                <div class="card-content">
+                    <h2>ASPIRANTE</h2>
+                    <p>Comienza tu viaje de aprendizaje con nuestros cursos especializados. Como aspirante tendrás acceso a contenido exclusivo, certificaciones reconocidas y apoyo de nuestros facilitadores.</p>
+                    <a href="registro.php" class="btn-select">
+                        Seleccionar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; FELIX DEV CURSOS (FDC). Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.profile-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?php
+include_once './conexion.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $idPlanificacion = $_POST["idPlanificacion"];
+
+    $sql = "SELECT curso FROM planificacion WHERE id_plani = '$idPlanificacion'";
+    $result = $connection->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo $row["curso"];
+    } else {
+        echo "ID de curso no disponible";
+    }
+}
+
+$connection->close();
+?>
