@@ -959,22 +959,19 @@
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Blog Educativo</a></li>
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Guías de Estudio</a></li>
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Material Gratuito</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Webinars</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
                 </ul>
             </div>
             
             <div class="footer-contact">
                 <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad, País</p>
-                <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
-                <p><i class="fas fa-envelope"></i> info@felixdevcursos.com</p>
-                <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00</p>
+                <p><i class="fas fa-map-marker-alt"></i></p>
+                <p><i class="fas fa-phone-alt"></i></p>
+                <p><i class="fas fa-envelope"></i></p>
+                <p><i class="fas fa-clock"></i> Lunes a Lunes</p>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; <?php echo date("Y"); ?> FELIX DEV CURSOS (FDC). Todos los derechos reservados.</p>
             <p>Desarrollado por Estudiantes de la UPTYAB</p>
         </div>
     </footer>
